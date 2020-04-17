@@ -2,7 +2,7 @@
   "name": "todotaskmanager",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "node server.js"
   },
