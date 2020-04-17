@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script async defer src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body onload="getTodos()">
+    <div class="breadcrumb">
+        <span>Todo Task Manager</span>
+    </div>
+    <div class="container" id="container">
+        <br>
+        <h1 class="display-4">Create Task</h1>
+        <br>
+        <form>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Title</span>
+                </div>
+                <input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Description</span>
+                </div>
+                <input type="text" class="form-control" name="desc" id="desc">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Priority</span>
+                </div>
+                <select id="priority" name="priority" class="form-control">
+                    <option>high</option>
+                    <option selected>medium</option>
+                    <option>low</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Due Date</span>
+                </div>
+                <input type="date" class="form-control" name="due" id="due" placeholder="YYYY-MM-DD">
+            </div>
+            <input type="submit" id="submit" class="btn btn-success" style="width:100%" value="Submit">
+            <br />
+            <br />
+        </form>
+    </div>
+    <div class="container" id="container">
+        <br />
+        <h3 class="display-4">All Task</h3>
+        <br />
+        <div class="dropdown" id="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Sort By
+            </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" style="text-decoration:none" onclick="getTodoOrderby('dueAsc')">Due_Date Ascending</button>
+                <button class="dropdown-item" style="text-decoration:none" onclick="getTodoOrderby('dueDesc')">Due_Date Descending</button>
+                <button class="dropdown-item" style="text-decoration:none" onclick="getTodoOrderby('priority')">Priority(High to low)</button>
+                <button class="dropdown-item" style="text-decoration:none" onclick="getTodoOrderby('status')">Status(incomptete to complete)</button>
+            </div>
+        </div>
+        <ul id="ulList"></ul>
+            
+    </div>
+
+    <div class="container">
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <ul id="notesList"></ul>
+            </div>
+
+        </div>
+        <div id="myModal2" class="modal2">
+            <div class="modal-content">
+                <span class="close2">&times;</span>
+                <form id="editForm" class="form-control">
+                    <h1>Edit</h1>
+                    <br />
+
+                    <label for="newdate" id="labeldate">Date</label>
+                    <label for="newprior" id="labelprior">Priority</label>
+                    <label for="newstatus" id="labelstatus">Status</label>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="myModal3" class="modal3">
+            <div class="modal-content">
+                <span class="close3">&times;</span>
+                <form id="notesForm">
+                    <h1>Add Note</h1>
+                    <br>
+                    <label id="labelId">Note:</label>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
